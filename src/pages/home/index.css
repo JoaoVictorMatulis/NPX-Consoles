@@ -1,6 +1,6 @@
 body{
     background-color: #EBEBEB;
-    overflow: hidden;
+    font-family: 'Inter';
 }
 
 main{
@@ -134,4 +134,43 @@ main{
 #xbox{
     background-color: #5DB34A;
     margin-left: 20px;
+}
+
+@media (max-width: 1200px) {
+    #marcas{
+        height: 30%;
+    }
+
+    #marcas > div{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100px;
+        gap: 10px;
+        
+    }
+
+    #nintendo{
+        margin: 0px;
+    }
+
+    #ps4{
+        margin: 0px;
+    }
+
+    #xbox{
+        margin: 0px;
+    }
+
+    .cabecalho-menu{
+        height: 110px;
+        display: grid;
+        grid-template-columns: auto auto;
+        align-items: center;
+    }
+
+    .fa-cart-shopping{
+        padding-right: 0px;
+        margin: 20px;
+    }
 }
