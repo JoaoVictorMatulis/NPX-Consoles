@@ -27,7 +27,26 @@ a{
 .produtos-principais > a > img{
     height: 300px;
 }
-
+/*
+column-gap
+row-gap
+gap
+*/
 .produtos{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding-top: 80px;
+    row-gap: 40px;
+}
 
+.produtos > a {
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    width: 350px;
+    padding-top: 20px;
+}
+
+.produtos > a > img{
+    height: 100px;
 }
