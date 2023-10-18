@@ -9,11 +9,11 @@ create table pessoa(
 
 create table produto(
 	produto_id int auto_increment primary key,
-    marca varchar(10),
-    nome varchar(30),
-    preco double,
-    descricao varchar(500),
+    marca varchar(10) not null,
+    nome varchar(30) not null,
+    preco double not null,
+    descricao varchar(500) not null,
     principal boolean,
-    img varchar(100),
+    img varchar(100) not null,
     dia datetime
 );
