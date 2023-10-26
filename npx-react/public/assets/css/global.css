@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Press+Start+2P&display=swap');
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css");
+
+* {
+    box-sizing: border-box;
+
+}
+
+body{
+    /*font-family: 'Press Start 2P', 'inter';*/
+}

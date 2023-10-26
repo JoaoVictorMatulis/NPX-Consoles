@@ -1,0 +1,58 @@
+#prodEspc-Body{
+    background-color: #EBEBEB;
+    font-family: 'Press Start 2P';
+    height: 100%;
+}
+
+#form-Edit{
+    justify-content: end;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#div-ProdEspc > pre{
+    font-family: 'Press Start 2P';
+    font-size: 14px;
+}
+
+#div-ProdEspc > img{
+    max-width: 600px;
+    max-height: 500px;
+}
+
+#conteiner{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.desc{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.desc > h2, h3{
+    color: rgb(44, 44, 44);
+}
+
+.botao{
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    padding: 5px;
+    background: #B4B4B8;
+    border: 2px solid #B4B4B8;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.botao:hover{
+    color: white;
+    background: #2D2D32;
+    border-color: #2D2D32;
+}
