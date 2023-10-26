@@ -5,7 +5,7 @@ export default function Produtos(){
     return(
         <div class="body-Produtos">
             <div id="produtos">
-                <a class="a-Produtos" href="http://localhost:3000/ProdutoEspcNintendo">
+                <a class="a-Produtos" href="/ProdutoEspcNintendo">
                     <img src="/assets/images/NINTENDO_SWITCH_OLED.png" alt="Nintendo Switch OLED"/>
                     <h1>Nintendo Switch OLED</h1>
                     <p>10x R$219,90 sem juros</p>

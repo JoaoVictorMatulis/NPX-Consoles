@@ -40,7 +40,7 @@ export default function Contato() {
         <div class="corpo-home">
             <nav class="cabecalho">
                 <div class="cabecalho-menu">
-                    <a href="http://localhost:3000/produtos" target="produtos"><img id="logo" src="/assets/images/logonpx.png" alt="npx consoles" /></a>
+                    <a href="/produtos" target="produtos"><img id="logo" src="/assets/images/logonpx.png" alt="npx consoles" /></a>
                     <form class="cabecalho-form">
                         <input id="pesquisa" type="text" name="pesquisa" />
                         <button class="form-button" type="submit" id="completed-task">
@@ -49,26 +49,26 @@ export default function Contato() {
                     </form>
                     <div class="cabecalho-login">
                         <div class="cabecalho-login-button">
-                            <a href="http://localhost:3000/Login">Login</a>
+                            <a href="/Login">Login</a>
                         </div>
                     </div>
                 </div>
             </nav>
             <div id="marcas">
                 <div>
-                    <a id="nintendo" href="http://localhost:3000/ProdutosNintendo" target="produtos">
+                    <a id="nintendo" href="/ProdutosNintendo" target="produtos">
                         <img src="/assets/images/nintendo.png" alt="" />
                     </a>
-                    <a id="ps4" href="http://localhost:3000/ProdutosPs4" target="produtos">
+                    <a id="ps4" href="/ProdutosPs4" target="produtos">
                         <img src="/assets/images/ps4.png" alt="" />
                     </a>
-                    <a id="xbox" href="http://localhost:3000/ProdutosXbox" target="produtos">
+                    <a id="xbox" href="/ProdutosXbox" target="produtos">
                         <img src="/assets/images/xbox.png" alt="" />
                     </a>
                 </div>
             </div>
             <main class="main-home">
-                <Iframe id="produtosIframe" src="http://localhost:3000/produtos" name="produtos"/>
+                <Iframe id="produtosIframe" src="/produtos" name="produtos"/>
             </main>
             <footer class="rodape-home">
                 <div class="rodape">

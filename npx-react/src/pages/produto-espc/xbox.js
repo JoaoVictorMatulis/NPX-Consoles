@@ -6,7 +6,7 @@ export default function ProdutoEspc(){
         <div id="prodEspc-Body">
             <form id="form-Edit" action="post">
                 <input type="hidden" name="flag" value="editar"/>
-                <a href="http://localhost:3000/EditarProdutoXbox"><input type="button" id="editar" class="botao" value="Editar"/></a>
+                <a href="/EditarProdutoXbox"><input type="button" id="editar" class="botao" value="Editar"/></a>
             </form>
             <div id="conteiner">
                 <div id="div-ProdEspc">

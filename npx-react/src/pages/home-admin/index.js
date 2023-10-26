@@ -31,27 +31,27 @@ export default function HomeAdmin() {
         nintendo.addEventListener("click", function () {
             marcas.style.backgroundColor = "#E60012"
             if(cadAtivo){
-                document.getElementById('nintendo').href="http://localhost:3000/CadastroProdutoNintendo";       
+                document.getElementById('nintendo').href="/CadastroProdutoNintendo";       
             }else{
-                document.getElementById('nintendo').href="http://localhost:3000/ProdutosNintendo";
+                document.getElementById('nintendo').href="/ProdutosNintendo";
             }
         })
         
         ps4.addEventListener("click", function () {
             marcas.style.backgroundColor = "#2F7DBF"
             if(cadAtivo){
-                document.getElementById('ps4').href="http://localhost:3000/CadastroProdutoPs4";        
+                document.getElementById('ps4').href="/CadastroProdutoPs4";        
             }else{
-                document.getElementById('ps4').href="http://localhost:3000/ProdutosPs4";
+                document.getElementById('ps4').href="/ProdutosPs4";
             }
         })
         
         xbox.addEventListener("click", function () {
             marcas.style.backgroundColor = "#5DB34A"
             if(cadAtivo){
-                document.getElementById('xbox').href="http://localhost:3000/CadastroProdutoXbox";     
+                document.getElementById('xbox').href="/CadastroProdutoXbox";     
             }else{
-                document.getElementById('xbox').href="http://localhost:3000/ProdutosXbox";
+                document.getElementById('xbox').href="/ProdutosXbox";
             }
         })
 
@@ -75,7 +75,7 @@ export default function HomeAdmin() {
         <div class="corpo-home">
             <nav class="cabecalho">
                 <div class="cabecalho-menu">
-                    <a href="http://localhost:3000/produtos" target="meio"><img id="logo" src="/assets/images/logonpx.png" alt="npx consoles" /></a>
+                    <a href="/produtos" target="meio"><img id="logo" src="/assets/images/logonpx.png" alt="npx consoles" /></a>
                     <form class="cabecalho-form">
                         <input id="pesquisa" type="text" name="pesquisa" />
                         <button class="form-button" type="submit" id="completed-task">
@@ -87,28 +87,28 @@ export default function HomeAdmin() {
                             <button>Bem Vindo<i class="fa-solid fa-chevron-down"></i></button>
                         </div>
                         <div id="opcoesAdmin">
-                            <a href="http://localhost:3000/CadastroProduto" target="meio" id="cadastrarProd">Cadastrar Produto</a>
+                            <a href="/CadastroProduto" target="meio" id="cadastrarProd">Cadastrar Produto</a>
                             <br/>
-                            <a href="http://localhost:3000">Sair</a>
+                            <a href="">Sair</a>
                         </div>
                     </div>
                 </div>
             </nav>
             <div id="marcas">
                 <div>
-                    <a id="nintendo" href="http://localhost:3000/ProdutosNintendo" target="meio">
+                    <a id="nintendo" href="/ProdutosNintendo" target="meio">
                         <img src="/assets/images/nintendo.png" alt="" />
                     </a>
-                    <a id="ps4" href="http://localhost:3000/ProdutosPs4" target="meio">
+                    <a id="ps4" href="/ProdutosPs4" target="meio">
                         <img src="/assets/images/ps4.png" alt="" />
                     </a>
-                    <a id="xbox" href="http://localhost:3000/ProdutosXbox" target="meio">
+                    <a id="xbox" href="/ProdutosXbox" target="meio">
                         <img src="/assets/images/xbox.png" alt="" />
                     </a>
                 </div>
             </div>
             <main class="main-home">
-                <Iframe id="produtosIframe" src="http://localhost:3000/produtos" name="meio"/>
+                <Iframe id="produtosIframe" src="/produtos" name="meio"/>
             </main>
             <footer class="rodape-home">
                 <div class="rodape">

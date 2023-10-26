@@ -5,19 +5,19 @@ export default function Produtos(){
     return(
         <div class="body-Produtos">
             <div id="produtos-principais">
-                <a class="a-Produtos" href="http://localhost:3000/ProdutoEspcNintendo">
+                <a class="a-Produtos" href="/ProdutoEspcNintendo">
                     <img src="/assets/images/NINTENDO_SWITCH_OLED.png" alt="Nintendo Switch OLED"/>
                     <h1>Nintendo Switch OLED</h1>
                     <p>10x R$219,90 sem juros</p>
                     <h2>R$ 2199,00</h2>
                 </a>
-                <a class="a-Produtos" href="http://localhost:3000/ProdutoEspcPs4">
+                <a class="a-Produtos" href="/ProdutoEspcPs4">
                     <img src="/assets/images/PLAYSTATION_5.png" alt="PlayStation 5"/>
                     <h1>PlayStation 5</h1>
                     <p>10x R$420,00 sem juros</p>
                     <h2>R$ 4200,00</h2>
                 </a>
-                <a class="a-Produtos" href="http://localhost:3000/ProdutoEspcXbox">
+                <a class="a-Produtos" href="/ProdutoEspcXbox">
                     <img src="/assets/images/XBOX_SERIES_X.png" alt="Xbox Series X"/>
                     <h1>Xbox Series X</h1>
                     <p>10x R$429,50 sem juros</p>

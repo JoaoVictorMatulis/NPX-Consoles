@@ -5,7 +5,7 @@ export default function Produtos(){
     return(
         <div class="body-Produtos">
             <div id="produtos">
-                <a class="a-Produtos" href="http://localhost:3000/ProdutoEspcXbox">
+                <a class="a-Produtos" href="/ProdutoEspcXbox">
                     <img src="/assets/images/XBOX_SERIES_X.png" alt="Xbox Series X"/>
                     <h1>Xbox Series X</h1>
                     <p>10x R$429,50 sem juros</p>

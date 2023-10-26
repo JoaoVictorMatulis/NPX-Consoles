@@ -5,7 +5,7 @@ export default function Produtos(){
     return(
         <div class="body-Produtos">
             <div id="produtos">
-                <a class="a-Produtos" href="http://localhost:3000/ProdutoEspcPs4">
+                <a class="a-Produtos" href="/ProdutoEspcPs4">
                     <img src="/assets/images/PLAYSTATION_5.png" alt="PlayStation 5"/>
                     <h1>PlayStation 5</h1>
                     <p>10x R$420,00 sem juros</p>

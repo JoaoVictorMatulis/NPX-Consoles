@@ -5,7 +5,7 @@ export default function Login(){
     return (<div class="body-Login">
         <nav class="cabecalho">
             <div class="cabecalho-menu">
-                <a href="http://localhost:3000"><img id="logo"
+                <a href="/"><img id="logo"
                         src="/assets/images/logonpx.png" alt="npx consoles"/></a>
             </div>
         </nav>
