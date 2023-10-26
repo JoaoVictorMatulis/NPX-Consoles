@@ -15,7 +15,7 @@ export default function Login(){
             <input type="text" id="email" name="email" required/><br/>
             <label for="senha">Senha:</label><br/>
             <input type="password" id="senha" name="senha" required/>
-            <a href="http://localhost:3000/HomeAdmin">Continuar</a>
+            <a href="/HomeAdmin">Continuar</a>
         </form>
     </div>)
 }

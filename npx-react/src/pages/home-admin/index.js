@@ -89,7 +89,7 @@ export default function HomeAdmin() {
                         <div id="opcoesAdmin">
                             <a href="/CadastroProduto" target="meio" id="cadastrarProd">Cadastrar Produto</a>
                             <br/>
-                            <a href="">Sair</a>
+                            <a href="/">Sair</a>
                         </div>
                     </div>
                 </div>
