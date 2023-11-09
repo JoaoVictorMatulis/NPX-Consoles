@@ -3,11 +3,15 @@ import { listar, salvar, buscarPorNome, listarMarca, produtosPrincipais, produto
 
 const endpoints = Router();
 
-endpoints.get('/login', async (req, resp) => {
+endpoints.post('/login', async (req, resp) => {
   try {
     let pessoa = req.body;
     let r = await login(pessoa);
-    resp.send(r);
+    if(r[0] == null){
+      resp.send(null)
+    }else{
+      resp.send(r);
+    }
   }
   catch (err) {
     resp.status(400).send({
@@ -85,7 +89,7 @@ endpoints.post('/cadastroProd', async(req, resp) =>{
     resp.send(r)
   } catch (error) {
     resp.status(400).send({
-      erro: err.message
+      erro: error.message
     })
   }
 })

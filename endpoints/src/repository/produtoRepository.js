@@ -2,13 +2,17 @@ import { con } from "./connection.js"
 
 export async function login(pessoa) {
     const comando = `
-       SELECT email        as email,
+       SELECT pessoa_id as id,
+              email        as email,
               senha        as senha
          FROM pessoa where email = ? and senha = ?
     `
-
     const [linhas] = await con.query(comando, [pessoa.email, pessoa.senha]);
-    return linhas;
+    if(linhas == null){
+        return null
+    }else{
+        return linhas;
+    }
 }
 
 export async function listar() {
@@ -104,6 +108,9 @@ export async function salvar(produto){
     (?, ?, ?, ?, ?, ?, now())
     `
     const [linha] = await con.query(comando,[produto.marca, produto.nome, produto.preco, produto.descricao, produto.principal, produto.img])
+    produto.id = linha.insertId;
+    console.log(produto.id)
+    return produto
 }
 
 
@@ -115,7 +122,7 @@ export async function alterar(produto) {
     `
 
     const [info] = await con.query(comando,[produto.marca, produto.nome, produto.preco, produto.descricao, produto.principal, produto.img, produto.id])
-    return produto
+    return info
 }
 
 export async function remover(id) {
