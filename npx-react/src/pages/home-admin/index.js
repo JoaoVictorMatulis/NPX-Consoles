@@ -12,7 +12,7 @@ export default function HomeAdmin() {
         if(pesquisar == null || pesquisar === undefined || pesquisar === ''){
             alert('Não foi possível achar esse produto')
         }else{
-            var r = await axios.get('http://localhost:5000/produto/'+pesquisar)
+            var r = await axios.get('http://191.235.113.110:5000/produto/'+pesquisar)
             if (r.data[0] == null) {
                 alert('Não foi possível achar esse produto')
             } else {
