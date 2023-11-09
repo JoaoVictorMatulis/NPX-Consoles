@@ -129,7 +129,7 @@ export default function Contato() {
                         <div class="desenvolvido">
                             <h1>DESENVOLVIDO POR:</h1>
                             <p>BERNARDO GALVÃO DE SOUZA<br></br>
-                                JOÃO VICTOR MATULIS<br>
+                                JOÃO VICTOR MATULIS<br></br>
                                 KEVIN SOUSA DOS SANTOS</p>
                         </div>
                         <div clas="rodape-img">
