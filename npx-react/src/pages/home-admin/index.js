@@ -1,9 +1,25 @@
 import './index.scss';
 import { Link } from 'react-router-dom';
 import Iframe from 'react-iframe'
-import React, { useEffect} from 'react';
+import React, { useEffect, useState} from 'react';
+import axios from 'axios';
 
 export default function HomeAdmin() {
+
+    const[pesquisar, setPesquisar] = useState(null);
+
+    async function pesquisarProduto(){
+        if(pesquisar == null || pesquisar === undefined || pesquisar === ''){
+            alert('Não foi possível achar esse produto')
+        }else{
+            var r = await axios.get('http://localhost:5000/produto/'+pesquisar)
+            if (r.data[0] == null) {
+                alert('Não foi possível achar esse produto')
+            } else {
+                alert('Achei:'+r.data[0].preco)
+            }
+        }
+    }
 
     function timeout(delay) {
         return new Promise( res => setTimeout(res, delay) );
@@ -87,12 +103,12 @@ export default function HomeAdmin() {
             <nav class="cabecalho">
                 <div class="cabecalho-menu">
                     <Link to="/produtos" target="produtos"><img id="logo" src="/assets/images/logonpx.png" alt="npx consoles" /></Link>
-                    <form class="cabecalho-form">
-                        <input id="pesquisa" type="text" name="pesquisa" />
-                        <button class="form-button" type="submit" id="completed-task">
+                    <div class="cabecalho-form">
+                        <input id="pesquisa" type="text" name="pesquisa" value={pesquisar} onChange={e => setPesquisar(e.target.value)}/>
+                        <button class="form-button" id="completed-task" onClick={pesquisarProduto}>
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </button>
-                    </form>
+                    </div>
                     <div class="cabecalho-login">
                         <div class="cabecalho-login-button" id="ativar">
                             <button>Bem Vindo<i class="fa-solid fa-chevron-down"></i></button>
