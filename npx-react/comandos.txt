@@ -1,4 +1,4 @@
 npm i --global npx
 npx create-react-app ./
-npm i react-router-dom sass react-iframe
+npm i react-router-dom sass react-iframe axios
 npm start
