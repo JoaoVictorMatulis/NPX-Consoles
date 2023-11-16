@@ -10,7 +10,7 @@ servidor.use(express.json())
 
 servidor.use(produtoController)
 
-
+servidor.use('/storage', express.static('./storage'));
 
 
 const port = process.env.PORT

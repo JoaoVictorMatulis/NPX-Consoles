@@ -1,15 +1,17 @@
+import multer from 'multer';
 import { Router } from 'express'
-import { listar, salvar, buscarPorNome, listarMarca, produtosPrincipais, produtosNormais, login, alterar, remover } from '../repository/produtoRepository.js';
+import { listar, salvar, buscarPorNome, listarMarca, produtosPrincipais, produtosNormais, login, alterar, remover, alterarCapa } from '../repository/produtoRepository.js';
 
 const endpoints = Router();
+const upload = multer({ dest: './storage' })
 
 endpoints.post('/login', async (req, resp) => {
   try {
     let pessoa = req.body;
     let r = await login(pessoa);
-    if(r[0] == null){
+    if (r[0] == null) {
       resp.send(null)
-    }else{
+    } else {
       resp.send(r);
     }
   }
@@ -82,7 +84,7 @@ endpoints.get('/normais', async (req, resp) => {
   }
 })
 
-endpoints.post('/cadastroProd', async(req, resp) =>{
+endpoints.post('/cadastroProd', async (req, resp) => {
   try {
     let produto = req.body
     let r = await salvar(produto)
@@ -94,7 +96,7 @@ endpoints.post('/cadastroProd', async(req, resp) =>{
   }
 })
 
-endpoints.put('/atualizarProd', async(req, resp) =>{
+endpoints.put('/atualizarProd', async (req, resp) => {
   try {
     let produto = req.body
     let r = await alterar(produto)
@@ -106,21 +108,31 @@ endpoints.put('/atualizarProd', async(req, resp) =>{
   }
 })
 
+endpoints.put('/prod/:id/capa', upload.single('capa'), async (req, resp) =>{
+  let id = req.params.id;
+  let caminho = req.file.path;
+  
+  let r = await alterarCapa(id, caminho);
+  resp.status(202).send();
+})
+
 endpoints.delete('/delproduto/:id', async (req, resp) => {
-    try {
-      let id = req.params.id;
-      let linhasAfetadas = await remover(id);
+  try {
+    let id = req.params.id;
+    let linhasAfetadas = await remover(id);
 
-      if (linhasAfetadas == 0)
-        throw new Error('Produto não encontrado!');
+    if (linhasAfetadas == 0)
+      throw new Error('Produto não encontrado!');
 
-      resp.send();
-    }
-    catch (err) {
-      resp.status(400).send({
-        erro: err.message
-      })
-    }
-  })
+    resp.send();
+  }
+  catch (err) {
+    resp.status(400).send({
+      erro: err.message
+    })
+  }
+})
+
+
 
 export default endpoints;

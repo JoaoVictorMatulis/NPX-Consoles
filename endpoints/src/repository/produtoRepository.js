@@ -107,7 +107,7 @@ export async function salvar(produto){
     VALUES
     (?, ?, ?, ?, ?, ?, now())
     `
-    const [linha] = await con.query(comando,[produto.marca, produto.nome, produto.preco, produto.descricao, produto.principal, produto.img])
+    const [linha] = await con.query(comando,[produto.marca, produto.nome, produto.preco, produto.descricao, produto.principal, null])
     produto.id = linha.insertId;
     console.log(produto.id)
     return produto
@@ -131,3 +131,14 @@ export async function remover(id) {
     const [info] = await con.query(comando, [id])
     return info.affectedRows;
 }
+
+export async function alterarCapa(id, caminho) {
+    const comando = `
+    UPDATE produto
+    SET img = ?
+    WHERE produto_id = ?;
+    `
+  
+    const [info] = await con.query(comando, [caminho, id])
+    return info.affectedRows;
+  } 
