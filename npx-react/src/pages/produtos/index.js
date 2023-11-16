@@ -14,8 +14,8 @@ export default function Produtos() {
 
     async function buscarProdutos() {
         try{
-            // let r = await axios.get('http://localhost:5000/normais');
-            let r = await axios.get('http://localhost:5000/normais');
+            // let r = await axios.get('http://191.235.113.110:5000/normais');
+            let r = await axios.get('http://191.235.113.110:5000/normais');
             setProdutos(r.data || []);
         } catch(error){
             console.error('Erro ao buscar produtos:', error);
@@ -25,8 +25,8 @@ export default function Produtos() {
 
     async function buscarPrincipais() {
         try{
-            // let r = await axios.get('http://localhost:5000/normais');
-            let r = await axios.get('http://localhost:5000/principais');
+            // let r = await axios.get('http://191.235.113.110:5000/normais');
+            let r = await axios.get('http://191.235.113.110:5000/principais');
             setPrincipais(r.data || []);
         } catch(error){
             console.error('Erro ao buscar produtos:', error);
@@ -39,7 +39,7 @@ export default function Produtos() {
             <div id="produtos-principais">
                 {principais.map((produto) => (
                     <Link class="a-Produtos" key={produto.id} to="">
-                        <img src={"http://localhost:5000/"+produto.imagem} alt={produto.nome} />
+                        <img src={"http://191.235.113.110:5000/"+produto.imagem} alt={produto.nome} />
                         <h1>{produto.nome}</h1>
                         <p>{`10x R$${(produto.preco / 10).toFixed(2)} sem juros`}</p>
                         <h2>{`R$ ${produto.preco}`}</h2>
@@ -67,7 +67,7 @@ export default function Produtos() {
             <div id="produtos">
                 {produtos.map((produto) => (
                     <Link class="a-Produtos" key={produto.id} to="">
-                        <img src={"http://localhost:5000/"+produto.imagem} alt={produto.nome} />
+                        <img src={"http://191.235.113.110:5000/"+produto.imagem} alt={produto.nome} />
                         <h1>{produto.nome}</h1>
                         <p>{`10x R$${(produto.preco / 10).toFixed(2)} sem juros`}</p>
                         <h2>{`R$ ${produto.preco}`}</h2>

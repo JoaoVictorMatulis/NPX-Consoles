@@ -14,7 +14,7 @@ export default function ProdutoEspc(){
 
     async function buscarProdutos() {
         try{
-            let r = await axios.get('http://localhost:5000/produto/');
+            let r = await axios.get('http://191.235.113.110:5000/produto/');
             setProdutos(r.data || []);
         } catch(error){
             console.error('Erro ao buscar produtos:', error);

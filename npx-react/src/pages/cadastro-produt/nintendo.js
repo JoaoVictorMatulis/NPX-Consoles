@@ -26,11 +26,11 @@ export default function Produtos(){
                 descricao: descricao,
                 principal: principal
             }
-            var r = await axios.post('http://localhost:5000/cadastroProd', body)
+            var r = await axios.post('http://191.235.113.110:5000/cadastroProd', body)
             var id = r.data.id;
 
             // if (img) {
-            //     r = await axios.put(`http://localhost:5000/prod/${id}/capa`, formData, {
+            //     r = await axios.put(`http://191.235.113.110:5000/prod/${id}/capa`, formData, {
             //         headers: { 'Content-Type': 'multipart/form-data' },
             //     });
             // }
