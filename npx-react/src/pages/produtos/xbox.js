@@ -1,28 +1,37 @@
+import { useEffect, useState } from 'react';
 import './index.scss';
 import { Link } from "react-router-dom";
+import axios from 'axios';
 
 export default function Produtos(){
+    const [produtos, setProdutos] = useState([]);
+
+    useEffect(() => {
+        buscarProdutos()
+    }, [])
+
+    async function buscarProdutos() {
+        try{
+            let r = await axios.get('http://localhost:5000/produtos/xbox');
+            setProdutos(r.data || []);
+        } catch(error){
+            console.error('Erro ao buscar produtos:', error);
+            setProdutos([]);
+        }
+    }
+    
+    
     return(
         <div class="body-Produtos">
             <div id="produtos">
-                <Link class="a-Produtos" to="/ProdutoEspcXbox" target="produtos">
-                    <img src="/assets/images/XBOX_SERIES_X.png" alt="Xbox Series X"/>
-                    <h1>Xbox Series X</h1>
-                    <p>10x R$429,50 sem juros</p>
-                    <h2>R$ 4295,00</h2>
-                </Link>
-                <Link class="a-Produtos" to="">
-                    <img src="/assets/images/XBOX_ONE.png" alt="XBOX_ONE"/>
-                    <h1>Xbox One</h1>
-                    <p>10x R$110,00 sem juros</p>
-                    <h2>R$ 1100,00</h2>
-                </Link>
-                <Link class="a-Produtos" to="">
-                    <img src="/assets/images/XBOX_SERIES_S.png" alt="XBOX_SERIES_S"/>
-                    <h1>Xbox Series S</h1>
-                    <p>10x R$240,00 sem juros</p>
-                    <h2>R$ 2400,00</h2>
-                </Link>
+                {produtos.map((produto) => (
+                    <Link class="a-Produtos" key={produto.id} to="">
+                        <img src={"http://localhost:5000/"+produto.imagem} alt={produto.nome} />
+                        <h1>{produto.nome}</h1>
+                        <p>{`10x R$${(produto.preco / 10).toFixed(2)} sem juros`}</p>
+                        <h2>{`R$ ${produto.preco}`}</h2>
+                    </Link>
+                ))}
             </div>
         </div>
     )

@@ -15,16 +15,26 @@ export default function Produtos(){
         if(nome == null || preco == null || descricao == null || img == null){
             alert('Preencha todos as campos abaixo e selecione uma imagem')
         }else{
+            alert(img)
+            const formData = new FormData();
+            formData.append('capa', img);
+
             var body = {
                 marca: marca,
                 nome: nome,
                 preco: preco,
                 descricao: descricao,
-                principal: principal,
-                img: img
+                principal: principal
             }
-            var r = await axios.post('http://191.235.113.110:5000/cadastroProd', body)
+            var r = await axios.post('http://localhost:5000/cadastroProd', body)
             var id = r.data.id;
+
+            // if (img) {
+            //     r = await axios.put(`http://localhost:5000/prod/${id}/capa`, formData, {
+            //         headers: { 'Content-Type': 'multipart/form-data' },
+            //     });
+            // }
+
             alert('Produto cadastrado. Id '+id)
         }
     }

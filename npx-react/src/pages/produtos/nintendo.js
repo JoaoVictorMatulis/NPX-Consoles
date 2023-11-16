@@ -1,40 +1,37 @@
+import { useEffect, useState } from 'react';
 import './index.scss';
 import { Link } from "react-router-dom";
+import axios from 'axios';
 
 export default function Produtos(){
+    const [produtos, setProdutos] = useState([]);
+
+    useEffect(() => {
+        buscarProdutos()
+    }, [])
+
+    async function buscarProdutos() {
+        try{
+            let r = await axios.get('http://localhost:5000/produtos/nintendo');
+            setProdutos(r.data || []);
+        } catch(error){
+            console.error('Erro ao buscar produtos:', error);
+            setProdutos([]);
+        }
+    }
+    
+    
     return(
         <div class="body-Produtos">
             <div id="produtos">
-                <Link class="a-Produtos" to="/ProdutoEspcNintendo" target="produtos">
-                    <img src="/assets/images/NINTENDO_SWITCH_OLED.png" alt="Nintendo Switch OLED"/>
-                    <h1>Nintendo Switch OLED</h1>
-                    <p>10x R$219,90 sem juros</p>
-                    <h2>R$ 2199,00</h2>
-                </Link>
-                <Link class="a-Produtos" to="">
-                    <img src="/assets/images/NINTENDO_SWITCH.png" alt="Switch"/>
-                    <h1>Switch</h1>
-                    <p>10x R$200,00 sem juros</p>
-                    <h2>R$ 2000,00</h2>
-                </Link>
-                <Link class="a-Produtos" to="">
-                    <img src="/assets/images/WII_U.png" alt="WII U"/>
-                    <h1>WII U</h1>
-                    <p>10x R$219,90 sem juros</p>
-                    <h2>R$ 2199,00</h2>
-                </Link>
-                <Link class="a-Produtos" to="">
-                    <img src="/assets/images/NINTENDO_3DS_XL.png" alt="Nintendo 3DS XL"/>
-                    <h1>Nintendo 3DS XL</h1>
-                    <p>10x R$219,90 sem juros</p>
-                    <h2>R$ 2199,00</h2>
-                </Link>
-                <Link class="a-Produtos" to="">
-                    <img src="/assets/images/NINTENDO_2DS.png" alt="NINTENDO_2DS"/>
-                    <h1>Nintendo 2DS</h1>
-                    <p>10x R$90,00 sem juros</p>
-                    <h2>R$ 900,00</h2>
-                </Link>
+                {produtos.map((produto) => (
+                    <Link class="a-Produtos" key={produto.id} to="">
+                        <img src={"http://localhost:5000/"+produto.imagem} alt={produto.nome} />
+                        <h1>{produto.nome}</h1>
+                        <p>{`10x R$${(produto.preco / 10).toFixed(2)} sem juros`}</p>
+                        <h2>{`R$ ${produto.preco}`}</h2>
+                    </Link>
+                ))}
             </div>
         </div>
     )

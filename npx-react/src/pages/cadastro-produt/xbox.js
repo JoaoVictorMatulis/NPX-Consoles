@@ -23,7 +23,7 @@ export default function Produtos(){
                 principal: principal,
                 img: img
             }
-            var r = await axios.post('http://191.235.113.110:5000/cadastroProd', body)
+            var r = await axios.post('http://localhost:5000/cadastroProd', body)
             var id = r.data.id;
             alert('Produto cadastrado. Id '+id)
         }

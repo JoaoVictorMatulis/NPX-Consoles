@@ -1,7 +1,27 @@
+import { useEffect, useState } from 'react';
 import './index.scss';
 import { Link } from "react-router-dom";
+import axios from 'axios';
 
 export default function ProdutoEspc(){
+
+    const [produtos, setProdutos] = useState([]);
+    const [principais, setPrincipais] = useState([])
+
+    useEffect(() => {
+        buscarProdutos()
+    }, [])
+
+    async function buscarProdutos() {
+        try{
+            let r = await axios.get('http://localhost:5000/produto/');
+            setProdutos(r.data || []);
+        } catch(error){
+            console.error('Erro ao buscar produtos:', error);
+            setProdutos([]);
+        }
+    }
+
     return(
         <div id="prodEspc-Body">
             <form id="form-Edit" action="post">

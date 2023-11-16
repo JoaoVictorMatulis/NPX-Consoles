@@ -18,6 +18,7 @@
     justify-content: space-evenly;
     align-items: center;
     .a-Produtos {
+        padding: 10px;
         align-items: center;
         justify-content: center;
         background-color: white;
@@ -37,6 +38,7 @@
 
         img {
             height: 300px;
+            width: 300px;
         }
     }
 }
