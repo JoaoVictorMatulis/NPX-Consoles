@@ -25,7 +25,7 @@ export default function Produtos(){
         <div class="body-Produtos">
             <div id="produtos">
                 {produtos.map((produto) => (
-                    <Link class="a-Produtos" key={produto.id} to="">
+                    <Link class="a-Produtos" key={produto.id} to={{ pathname: `/ProdutoEspc/${produto.id}`, state: { produtoId: produto.id } }}>
                         <img src={"http://191.235.113.110:5000/"+produto.imagem} alt={produto.nome} />
                         <h1>{produto.nome}</h1>
                         <p>{`10x R$${(produto.preco / 10).toFixed(2)} sem juros`}</p>

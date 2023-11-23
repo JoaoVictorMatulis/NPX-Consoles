@@ -56,3 +56,18 @@
     background: #2D2D32;
     border-color: #2D2D32;
 }
+
+#descricao{
+    width: 700px;
+    max-height: 300px;
+    overflow: auto;
+    overflow-x: hidden;
+    text-align: left;
+    border: 2px solid black;
+    padding: 10px;
+}
+
+#div-form-edit{
+    display: flex;
+    justify-content: right;
+}

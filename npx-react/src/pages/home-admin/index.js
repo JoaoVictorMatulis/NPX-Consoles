@@ -7,7 +7,7 @@ import axios from 'axios';
 export default function HomeAdmin() {
 
     const[pesquisar, setPesquisar] = useState(null);
-
+    const[iframe, setIframe] = useState("/produtos")
     async function pesquisarProduto(){
         if(pesquisar == null || pesquisar === undefined || pesquisar === ''){
             alert('Não foi possível achar esse produto')
@@ -16,7 +16,8 @@ export default function HomeAdmin() {
             if (r.data[0] == null) {
                 alert('Não foi possível achar esse produto')
             } else {
-                alert('Achei:'+r.data[0].preco)
+                let endpoint = ('/ProdutoEspc/'+r.data[0].id)
+                setIframe(endpoint)
             }
         }
     }
@@ -38,7 +39,7 @@ export default function HomeAdmin() {
         var cadAtivo = false;
 
         iframe.addEventListener("load", async function(){
-            await timeout(50)
+            await timeout(100)
             var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
             var iframeBody = iframeDocument.body;
             iframe.style.height = (iframeBody.offsetHeight + 100) + "px"
@@ -135,7 +136,7 @@ export default function HomeAdmin() {
                 </div>
             </div>
             <main class="main-home">
-                <Iframe id="produtosIframe" src="/produtos" name="produtos"/>
+                <Iframe id="produtosIframe" src={iframe} name="produtos"/>
             </main>
             <footer class="rodape-home">
                 <div class="rodape">

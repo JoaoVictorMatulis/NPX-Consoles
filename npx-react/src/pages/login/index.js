@@ -21,20 +21,23 @@ export default function Login() {
         }
     }
 
-    return (<div class="body-Login">
-        <nav class="cabecalho">
-            <div class="cabecalho-menu">
-                <Link to="/"><img id="logo"
-                    src="/assets/images/logonpx.png" alt="npx consoles" /></Link>
+    return (
+        <div className="body-Login">
+            <nav className="cabecalho">
+                <div className="cabecalho-menu">
+                    <Link to="/">
+                        <img id="logo" src="/assets/images/logonpx.png" alt="npx consoles" />
+                    </Link>
+                </div>
+            </nav>
+            <br />
+            <div className="Login">
+                <label htmlFor="email">Email:</label><br />
+                <input type='text' name="email" value={email} onChange={e => setEmail(e.target.value)} required /><br />
+                <label htmlFor="senha">Senha:</label><br />
+                <input type="password" name="senha" value={senha} onChange={e => setSenha(e.target.value)} required />
+                <button onClick={logar}> Continuar</button>
             </div>
-        </nav>
-        <br />
-        <div class="Login">
-            <label for="email">Email:</label><br />
-            <input type='text' name="email" value={email} onChange={e => setEmail(e.target.value)} required /><br />
-            <label for="senha">Senha:</label><br />
-            <input type="password" name="senha" value={senha} onChange={e => setSenha(e.target.value)} required />
-            <button onClick={logar}> Continuar</button>
         </div>
-    </div>)
+    );
 }

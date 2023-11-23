@@ -74,6 +74,11 @@
     height:170px
 }
 
+#div-form-deletar{
+    display: flex;
+    justify-content: right;
+}
+
 @media (max-width: 1200px) {
     form{
         flex-direction: column;

@@ -100,29 +100,83 @@ export async function buscarPorNome(nome) {
     return linhas;
 }
 
-export async function salvar(produto){
+export async function buscarPorId(id) {
     const comando = `
-    INSERT INTO 
-    produto(marca, nome, preco, descricao, principal, img, dia)
-    VALUES
-    (?, ?, ?, ?, ?, ?, now())
+       SELECT produto_id        as id,
+              marca             as marca,
+              nome              as nome,
+              preco             as preco,
+              descricao         as descricao,
+              principal         as principal,
+              img               as imagem,
+              dia               as dias
+         FROM produto where produto_id = ?
     `
-    const [linha] = await con.query(comando,[produto.marca, produto.nome, produto.preco, produto.descricao, produto.principal, null])
-    produto.id = linha.insertId;
-    console.log(produto.id)
-    return produto
+
+    const [linhas] = await con.query(comando, [id]);
+    return linhas;
+}
+
+export async function salvar(produto){
+    if(produto.principal == false){
+        const comando = `
+        INSERT INTO 
+        produto(marca, nome, preco, descricao, principal, dia)
+        VALUES
+        (?, ?, ?, ?, ?, now())
+        `
+        const [linha] = await con.query(comando,[produto.marca, produto.nome, produto.preco, produto.descricao, produto.principal])
+        produto.id = linha.insertId;
+        console.log(produto.id)
+        return produto
+    }else{
+        const comando1=`
+        UPDATE produto
+        SET principal = false
+        WHERE principal = true and marca = ?;`
+
+        const [a] = await con.query(comando1,[produto.marca])
+
+        const comando2 = `
+        INSERT INTO 
+        produto(marca, nome, preco, descricao, principal, dia)
+        VALUES
+        (?, ?, ?, ?, ?, now())
+        `
+        const [linha] = await con.query(comando2,[produto.marca, produto.nome, produto.preco, produto.descricao, produto.principal])
+        produto.id = linha.insertId;
+        return produto 
+    }
 }
 
 
 export async function alterar(produto) {
-    const comando = `
-    UPDATE produto
-    SET marca = ?, nome = ?, preco = ?, descricao = ?, principal = ?, img = ?
-    WHERE produto_id = ?;
-    `
+    if(produto.principal == false){
+        const comando = `
+        UPDATE produto
+        SET marca = ?, nome = ?, preco = ?, descricao = ?, principal = ?
+        WHERE produto_id = ?;
+        `
 
-    const [info] = await con.query(comando,[produto.marca, produto.nome, produto.preco, produto.descricao, produto.principal, produto.img, produto.id])
-    return info
+        const [info] = await con.query(comando,[produto.marca, produto.nome, produto.preco, produto.descricao, produto.principal, produto.id])
+        return info
+    } else{
+        const comando1=`
+        UPDATE produto
+        SET principal = false
+        WHERE principal = true and marca = ?;`
+
+        await con.query(comando1,[produto.marca])
+
+        const comando = `
+        UPDATE produto
+        SET marca = ?, nome = ?, preco = ?, descricao = ?, principal = ?
+        WHERE produto_id = ?;
+        `
+
+        const [info] = await con.query(comando,[produto.marca, produto.nome, produto.preco, produto.descricao, produto.principal, produto.id])
+        return info
+    }
 }
 
 export async function remover(id) {
