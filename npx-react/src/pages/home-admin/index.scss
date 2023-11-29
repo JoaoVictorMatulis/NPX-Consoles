@@ -1,0 +1,328 @@
+body{
+    background-color: #EBEBEB;
+    font-family: 'Inter';
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer{
+    display: flex;
+    justify-content: center;    
+    width: 100%;
+    background-color: #37373D;
+}
+
+.rodape{
+    margin-top: 20px;
+    height: 100%;
+    max-height: 265px;
+    color: white;
+    display: grid;
+    font-family: 'Inter';
+    font-size: 14px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+#produtosIframe{
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1440px;
+    border: none;
+    bottom: 0px;
+    min-height: 574px;
+}
+
+.cabecalho{
+    background-color: #37373D;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cabecalho-menu{
+    width: 100%;
+    max-width: 1440px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.cabecalho-form{
+    display: flex;
+    justify-content: center;
+    max-width: 500px;
+    width: 100%;
+}
+
+.resultado-form-pesquisa{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    margin-top: 1px;
+    margin-right: 20px;
+    max-width: 400px;
+    width: 100%;
+    background-color: white;
+    position: absolute;
+    max-height: 200px;
+    overflow: auto;
+    z-index: 999999;
+    top: 30px;
+    right: 32px;
+
+    .a-pesquisa-Produtos{
+        margin-top: 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid black;
+        width: 100%;
+        display: flex;
+        z-index: 2;
+        gap: 20px;
+        img{
+            max-width: 80px;
+            width: 100%;
+            height: 100%;
+        }
+
+        h1{
+            line-break: anywhere;
+        }
+    }
+}
+
+.cabecalho-login{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    max-width: 240px;
+}
+
+.cabecalho-login-button > button{
+    text-decoration: none;
+    color: black;
+    padding: 5px;
+    background: #4B4B52;
+    border: 2px solid #4B4B52;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cabecalho-login-button > button:hover{
+    color: white;
+    background: #2D2D32;
+    border-color: #2D2D32;
+}
+
+#opcoesAdmin{
+    display: none;
+    position: absolute;
+    text-align: center;
+    top: 33px;
+    background: #4B4B52;
+    border: 2px solid #4B4B52;
+    border-radius: 5px;
+    font-size: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    cursor: pointer;
+}
+
+#opcoesAdmin > a{
+    width: 100%;
+}
+
+#opcoesAdmin > a:hover{
+    color: white;
+    background: #2D2D32;
+    border-color: #2D2D32;
+}
+
+#opcoesAdmin.expandir{
+    display: block;
+}
+
+.fa-chevron-down{
+    padding-left: 5px;
+}
+
+.form-button {
+    background: none;
+    padding: 0px;
+    border: none;
+}
+
+.fa-cart-shopping{
+    padding-right: 30px;
+}
+
+.div-desenvolvido, .informacoes, .navegue{
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+}
+
+.informacoes > p{
+    width: 100%;
+    max-width: 200px;
+    text-align: center;
+}
+
+.desenvolvido>h1{
+    padding-right: 20px;
+}
+
+.pagamento{
+    height: 25px;
+    padding-right: 10px;
+}
+
+#marcas{
+    background-color: black;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#marcas > div{
+    width: 100%;
+    width: 1300px;
+    margin: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#marcas > div > a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 350px;
+    height: 77px;
+}
+
+#logo{
+    width: 200px;
+    height: 50px;
+    padding-left: 10px;
+}
+
+#pesquisa{
+    border-radius: 8px;
+    width: 100%;
+    max-width: 398px;
+    border: none;
+    margin-right: 5px;
+    text-align: left;
+}
+
+#pesquisa:focus{
+    outline: none;
+}
+
+#nintendo{
+    background-color: #E60012;
+    margin-right: 20px;
+}
+
+#ps4{
+    background-color: #2F7DBF;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#xbox{
+    background-color: #5DB34A;
+    margin-left: 20px;
+}
+
+@media (max-width: 1200px) {
+    #marcas{
+        height: 30%;
+    }
+
+    #marcas > div{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100px;
+        gap: 10px;
+        
+    }
+
+    #nintendo{
+        margin: 0px;
+    }
+
+    #ps4{
+        margin: 0px;
+    }
+
+    #xbox{
+        margin: 0px;
+    }
+
+    .cabecalho-menu{
+        height: 110px;
+        display: grid;
+        grid-template-columns: auto auto;
+        align-items: center;
+        
+    }
+
+    .fa-cart-shopping{
+        padding-right: 0px;
+        margin: 20px;
+    }
+
+    .rodape{
+        font-size: 10px;       
+        grid-template-columns: auto auto;
+        max-height: 100%;
+    }
+}
+
+@media (max-width: 849px) {
+
+    .produtos{
+        display: grid;
+        grid-template-columns: auto;
+        padding-top: 80px;
+        row-gap: 40px;
+    }
+
+    .produtos-principais{
+        display: grid;
+        grid-template-columns: auto;
+        margin-top: 10px;
+        gap:20px
+    }
+
+    footer{
+        font-size: 7px;
+    }
+
+    .pagamento{
+        height: 15px;
+        padding-right: 10px;
+    }
+}
