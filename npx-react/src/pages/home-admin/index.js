@@ -23,7 +23,7 @@ export default function HomeAdmin() {
           setProdutos([]);
         } else {
           try {
-            const response = await axios.get(`http://localhost:5000/produto/${pesquisar}`);
+            const response = await axios.get(`http://191.235.113.110:5000/produto/${pesquisar}`);
             setProdutos(response.data || []);
           } catch (error) {
             console.log(error);
@@ -150,7 +150,7 @@ export default function HomeAdmin() {
                                         target='produtos'
                                         onClick={limparPesquisa}
                                     >
-                                        <img src={`http://localhost:5000/${produto.imagem}`} alt={produto.nome} />
+                                        <img src={`http://191.235.113.110:5000/${produto.imagem}`} alt={produto.nome} />
                                         <h1>{produto.nome}</h1>
                                         <h2>{`R$ ${produto.preco}`}</h2>
                                     </Link>

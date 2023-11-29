@@ -15,7 +15,7 @@ export default function ProdutoEspc(){
     async function buscarProduto() {
         try{
             let id = params.id
-            let r = await axios.get("http://localhost:5000/produtoId/"+id);
+            let r = await axios.get("http://191.235.113.110:5000/produtoId/"+id);
             setProduto(r.data || []);
         } catch(error){
             console.error('Erro ao buscar Produto:', error);
@@ -37,7 +37,7 @@ export default function ProdutoEspc(){
             {produto.map((produto) => (
             <div id="conteiner">
                 <div id="div-ProdEspc">
-                    <img src={"http://localhost:5000/"+produto.imagem} alt={produto.nome} />
+                    <img src={"http://191.235.113.110:5000/"+produto.imagem} alt={produto.nome} />
                     <p>Descrição</p>
                     <p id="descricao" >{produto.descricao}</p>
                 </div>

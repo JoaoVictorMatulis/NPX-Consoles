@@ -19,7 +19,7 @@ export default function Produtos() {
     async function deletarProduto() {
         let text = "Gostaria de deletar o produto X?!";
         if (window.confirm(text) == true) {
-            let r = await axios.delete("http://localhost:5000/delproduto/" + params.id);
+            let r = await axios.delete("http://191.235.113.110:5000/delproduto/" + params.id);
             if(r.status = 202){
                 alert("Produto deletado com sucesso")
                 window.location.href = '/Produtos';
@@ -49,7 +49,7 @@ export default function Produtos() {
 
     async function buscarProduto() {
         try {
-            let r = await axios.get("http://localhost:5000/produtoId/" + params.id);
+            let r = await axios.get("http://191.235.113.110:5000/produtoId/" + params.id);
             if (r.data.length > 0) {
                 const primeiroProduto = r.data[0];
                 setMarca(primeiroProduto.marca);
@@ -81,10 +81,10 @@ export default function Produtos() {
                 descricao: descricao,
                 principal: principal
             }
-            var r = await axios.put('http://localhost:5000/atualizarProd', body)
+            var r = await axios.put('http://191.235.113.110:5000/atualizarProd', body)
 
             if (arquivo && String(arquivo) != String(arquivoString) ) {
-                r = await axios.put(`http://localhost:5000/prod/${params.id}/capa`, formData, {
+                r = await axios.put(`http://191.235.113.110:5000/prod/${params.id}/capa`, formData, {
                     headers: { 'Content-Type': 'multipart/form-data' },
                 });   
             }
@@ -102,7 +102,7 @@ export default function Produtos() {
             </div>
             <form action="post">
                 <div>
-                    <img id="imagemPreview" src={"http://localhost:5000/" + arquivo} alt="Prévia da Imagem" /><br />
+                    <img id="imagemPreview" src={"http://191.235.113.110:5000/" + arquivo} alt="Prévia da Imagem" /><br />
                     <input type="file" accept="image/*" name="img" id="img" onChange={e => setArquivo(e.target.files[0])} required />
                 </div>
                 <div id="dados">

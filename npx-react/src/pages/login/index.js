@@ -13,7 +13,7 @@ export default function Login() {
             senha: senha
         }
 
-        var r = await axios.post('http://localhost:5000/login', body)
+        var r = await axios.post('http://191.235.113.110:5000/login', body)
         if (r.data[0] == null) {
             alert('Email ou senha errada')
         } else {
